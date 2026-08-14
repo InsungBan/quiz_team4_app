@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gps_map_app/model/vaccination_controller.dart';
@@ -15,117 +14,35 @@ class VaccinationAdd
       nameController =
       TextEditingController();
 
-  // 날짜 선택
-  void selectDate(
+  // 날짜 선택 (Material date picker)
+  Future<void> selectDate(
     BuildContext context,
-  ) {
-    DateTime selectedDate =
-        DateTime.now();
+  ) async {
+    DateTime initialDate = DateTime.now();
 
-    if (controller.selectedDate
-        .isNotEmpty) {
-      List<String> dateList =
-          controller.selectedDate
-              .split('-');
-
-      selectedDate = DateTime(
-        int.parse(dateList[0]),
-        int.parse(dateList[1]),
-        int.parse(dateList[2]),
-      );
+    if (controller.selectedDate.isNotEmpty) {
+      final parts = controller.selectedDate.split('-');
+      if (parts.length == 3) {
+        initialDate = DateTime(
+          int.parse(parts[0]),
+          int.parse(parts[1]),
+          int.parse(parts[2]),
+        );
+      }
     }
 
-    showModalBottomSheet(
+    final DateTime? picked = await showDatePicker(
       context: context,
-      builder: (context) {
-        return Container(
-          height: 350,
-
-          color: Colors.white,
-
-          child: Column(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.all(10),
-
-                child: Row(
-                  mainAxisAlignment:
-                      MainAxisAlignment
-                          .spaceBetween,
-
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(
-                          context,
-                        );
-                      },
-
-                      child: const Text(
-                        '취소',
-                      ),
-                    ),
-
-                    const Text(
-                      '날짜 선택',
-                      style: TextStyle(
-                        fontWeight:
-                            FontWeight.bold,
-                      ),
-                    ),
-
-                    TextButton(
-                      onPressed: () {
-                        String date =
-                            '${selectedDate.year}-'
-                            '${selectedDate.month.toString().padLeft(2, '0')}-'
-                            '${selectedDate.day.toString().padLeft(2, '0')}';
-
-                        controller
-                            .setDate(date);
-
-                        Navigator.pop(
-                          context,
-                        );
-                      },
-
-                      child: const Text(
-                        '확인',
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              Expanded(
-                child:
-                    CupertinoDatePicker(
-                  mode:
-                      CupertinoDatePickerMode
-                          .date,
-
-                  initialDateTime:
-                      selectedDate,
-
-                  minimumDate:
-                      DateTime(2020),
-
-                  maximumDate:
-                      DateTime(2030),
-
-                  onDateTimeChanged:
-                      (date) {
-                    selectedDate =
-                        date;
-                  },
-                ),
-              ),
-            ],
-          ),
-        );
-      },
+      initialDate: initialDate,
+      firstDate: DateTime(2020),
+      lastDate: DateTime(2030),
     );
+
+    if (picked != null) {
+      final date =
+          '${picked.year}-${picked.month.toString().padLeft(2, '0')}-${picked.day.toString().padLeft(2, '0')}';
+      controller.setDate(date);
+    }
   }
 
   @override
