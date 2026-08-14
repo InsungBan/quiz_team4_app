@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class SetRecord extends StatefulWidget {
   const SetRecord({super.key});
@@ -299,6 +300,14 @@ class _SetRecordState extends State<SetRecord> {
             ),
             ElevatedButton(
               onPressed: () {
+                // 로그인된 유저가 있으면 해당 유저 정보로 저장
+                final box = GetStorage();
+                final userId = box.read('p_userId');
+                if (userId != null) {
+                  box.write('user_${userId}_weight', weightValue);
+                  box.write('user_${userId}_height', heightValue);
+                  box.write('user_${userId}_blood', bloodList[selectedBlood]);
+                }
                 Get.back();
               }, 
               child: Text('Save'),

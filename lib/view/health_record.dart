@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gps_map_app/model/health_controller.dart';
+import 'package:quiz_team4_app/model/health_controller.dart';
 import 'second_page.dart';
 
 class HealthRecord extends StatefulWidget {

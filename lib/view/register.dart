@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gps_map_app/view/set_record.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:quiz_team4_app/view/set_record.dart';
 
 class Register extends StatefulWidget {
   final List<Map<String,String>> userIdList;
@@ -118,6 +119,7 @@ class _RegisterState extends State<Register> {
       final newUser = {
         'userId': idController.text.trim(),
         'password': pwController.text.trim(),
+        'name': nameController.text.trim(),
       };
       Get.defaultDialog(
         title: '확인',
@@ -126,11 +128,21 @@ class _RegisterState extends State<Register> {
         barrierDismissible: false,
         actions: [
           TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
+            onPressed: () async {
+              final box = GetStorage();
+              final List stored = box.read('users') ?? [];
+              stored.add(newUser);
+              box.write('users', stored);
+              // 자동 로그인 처리
+              box.write('p_userId', newUser['userId']);
+              box.write('p_user', newUser['name']);
+              // 닫기 (다이얼로그)
+              Get.back();
               initTextField();
-              Navigator.of(context).pop();
-              Get.to(SetRecord(), arguments: newUser);
+
+              // 프로필 설정으로 이동하고 완료되면 가입 화면을 닫아 Home으로 돌아감
+              await Get.to(SetRecord(), arguments: newUser);
+              Navigator.of(context).pop(true);
             },
             child: Text('예'),
           ),

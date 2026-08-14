@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gps_map_app/model/health_controller.dart';
-import 'package:gps_map_app/model/vaccination_controller.dart';
-import 'package:gps_map_app/view/main_page.dart';
+import 'package:quiz_team4_app/model/health_controller.dart';
+import 'package:quiz_team4_app/model/vaccination_controller.dart';
+import 'package:quiz_team4_app/view/main_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

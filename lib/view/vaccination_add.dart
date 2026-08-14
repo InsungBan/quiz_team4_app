@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gps_map_app/model/vaccination_controller.dart';
+import 'package:quiz_team4_app/model/vaccination_controller.dart';
 
 class VaccinationAdd
     extends StatelessWidget {

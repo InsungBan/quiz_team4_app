@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gps_map_app/home.dart';
+import 'package:quiz_team4_app/home.dart';
 import 'health_record.dart';
 import 'my_page.dart';
 
