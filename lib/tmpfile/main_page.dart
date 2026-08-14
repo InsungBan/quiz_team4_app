@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:asdasd_asdasd_app/home.dart';
-import 'package:asdasd_asdasd_app/my_page.dart';
+import 'home.dart';
+import 'my_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

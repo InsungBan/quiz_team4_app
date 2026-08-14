@@ -1,5 +1,5 @@
-import 'package:asdasd_asdasd_app/second_page.dart';
-import 'package:asdasd_asdasd_app/model/health_controller.dart';
+import 'second_page.dart';
+import 'model/health_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

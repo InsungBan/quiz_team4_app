@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:asdasd_asdasd_app/main_page.dart';
+import 'main_page.dart';
 
 void main() {
   runApp(
