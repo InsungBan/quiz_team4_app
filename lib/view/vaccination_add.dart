@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'model/vaccination_controller.dart';
+import 'package:gps_map_app/model/vaccination_controller.dart';
 
 class VaccinationAdd
     extends StatelessWidget {
@@ -359,11 +359,10 @@ class VaccinationAdd
                               : Icons
                                   .radio_button_unchecked,
 
-                          color:
-                              controller
-                                      .isCompleted
-                                  ? Colors.white
-                                  : Colors.black,
+                          color: controller
+                                  .isCompleted
+                              ? Colors.white
+                              : Colors.black,
                         ),
 
                         const SizedBox(

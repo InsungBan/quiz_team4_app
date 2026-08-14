@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'model/health_controller.dart';
+import 'package:gps_map_app/model/health_controller.dart';
 
 class SecondPage extends StatelessWidget {
   SecondPage({super.key});
@@ -51,7 +51,10 @@ class SecondPage extends StatelessWidget {
         ),
 
         backgroundColor:
-            Colors.greenAccent,
+            Colors.cyan,
+
+        foregroundColor:
+            Colors.white,
 
         centerTitle: true,
       ),
@@ -129,7 +132,7 @@ class SecondPage extends StatelessWidget {
                           Icons
                               .calendar_month,
                           color:
-                              Colors.green,
+                              Colors.cyan,
                         ),
 
                         const SizedBox(
@@ -300,10 +303,10 @@ class SecondPage extends StatelessWidget {
                             .styleFrom(
                       backgroundColor:
                           Colors
-                              .greenAccent,
+                              .cyan,
 
                       foregroundColor:
-                          Colors.black,
+                          Colors.white,
 
                       shape:
                           RoundedRectangleBorder(

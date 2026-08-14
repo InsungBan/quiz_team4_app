@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'package:gps_map_app/home.dart';
+import 'health_record.dart';
 import 'my_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -10,22 +11,11 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int currentIndex = 1;
+  int currentIndex = 0;
 
   final List<Widget> pages = [
-    const Center(
-      child: Text(
-        '1페이지\n홈',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-
-    const Home(),
-
+    Home(),
+    HealthRecord(),
     MyPage(),
   ];
 

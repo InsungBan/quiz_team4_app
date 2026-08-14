@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'vaccination_add.dart';
-import 'model/vaccination_controller.dart';
+import '../model/vaccination_controller.dart';
 
 class MyPage extends StatelessWidget {
   MyPage({super.key});

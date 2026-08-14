@@ -88,6 +88,7 @@ class _GpsState extends State<Gps> {
     canRun=true;
     latData = currentPosition.latitude;
     longData = currentPosition.longitude;
+    // ignore: avoid_print
     print('-------> lat : $latData, long : $longData');
     setState(() {});
   }
